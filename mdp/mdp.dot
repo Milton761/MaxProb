@@ -1,0 +1,15 @@
+digraph G
+{
+
+
+
+s0 -> s1 [label="a1", dir="none"]
+s1 -> s2 [label="0.5"]
+s1 -> s3 [label="0.5"]
+
+
+s1 [shape=point]
+
+s0 [label="I"]
+
+}

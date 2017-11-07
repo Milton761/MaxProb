@@ -1,0 +1,30 @@
+digraph G
+{
+node [shape=plaintext]
+a[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD width="30" height="30" fixedsize="true" BGCOLOR="cyan">0.72</TD>
+<TD width="30" height="30" fixedsize="true">0.73</TD>
+<TD width="30" height="30" fixedsize="true" BGCOLOR="gray">0</TD>
+<TD width="30" height="30" fixedsize="true">0.59</TD>
+</TR>
+<TR>
+<TD width="30" height="30" fixedsize="true">0.81</TD>
+<TD width="30" height="30" fixedsize="true">0.82</TD>
+<TD width="30" height="30" fixedsize="true" BGCOLOR="gray">0</TD>
+<TD width="30" height="30" fixedsize="true">0.74</TD>
+</TR>
+<TR>
+<TD width="30" height="30" fixedsize="true">0.91</TD>
+<TD width="30" height="30" fixedsize="true">0.93</TD>
+<TD width="30" height="30" fixedsize="true">0.94</TD>
+<TD width="30" height="30" fixedsize="true">0.93</TD>
+</TR>
+<TR>
+<TD width="30" height="30" fixedsize="true">0.83</TD>
+<TD width="30" height="30" fixedsize="true">0.92</TD>
+<TD width="30" height="30" fixedsize="true">0.95</TD>
+<TD width="30" height="30" fixedsize="true" BGCOLOR="palegreen">1</TD>
+</TR>
+ </TABLE>>];
+}
