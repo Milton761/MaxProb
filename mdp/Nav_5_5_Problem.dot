@@ -27,7 +27,7 @@ a[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
 <TD width="35" height="35" fixedsize="true">15</TD>
 <TD width="35" height="35" fixedsize="true">16</TD>
 <TD width="35" height="35" fixedsize="true">17</TD>
-<TD width="35" height="35" fixedsize="true">18</TD>
+<TD width="35" height="35" fixedsize="true" BGCOLOR="gray">18</TD>
 <TD width="35" height="35" fixedsize="true">19</TD>
 </TR>
 <TR>

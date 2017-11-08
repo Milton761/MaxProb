@@ -35,7 +35,7 @@ int main()
 
 
 	vector<int> dead_ends;
-	//dead_ends.push_back(w*h-1-w-1);
+	dead_ends.push_back(w*h-1-w-1);
 	//dead_ends.push_back(2);
 	//dead_ends.push_back(10);
 
@@ -48,11 +48,11 @@ int main()
 	graph_to_dot(N,"N.dot");
 	
 
-	auto V_P = valueIteration(N, to_string(w*h-1), 0.01);
+	auto V_P = valueIteration(N, to_string(w*h-1), 0.001);
 
 	valueFunctionPr V = get<0>(V_P);
 	Policy P = get<1>(V_P);
-	/*
+	
 	cout<<"----------------------------------------------------------------------------"<<endl;
 	for(int i=0; i<V.size(); i++)
 	{
@@ -95,11 +95,13 @@ int main()
 	}
 
 	cout<<"----------------------------------------------------------------------------"<<endl;
-	*/
-	string file_name = "Nav_" + to_string(w)+"_"+to_string(h);
-	graphNavigation(w, h, V, P, dead_ends, file_name);
+	
 
-	string folder_name  = file_name +"_folder";
+
+	string file_name = "Nav_VI_" + to_string(w)+"_"+to_string(h);
+	graphNavigation(w, h, V, P, dead_ends, file_name);
+//-----------------------
+	string folder_name  = "Nav_" + to_string(w)+"_"+to_string(h) +"_folder";
 	string problem_name = file_name+"_Problem.dot";
 	string value_name   = file_name+"_ValuePr.dot";
 	string policy_name  = file_name+"_Policy.dot";
@@ -108,27 +110,53 @@ int main()
 	system(cmd0.c_str());
 	string cmd1 = "mkdir "+ file_name +"_folder";
 	system(cmd1.c_str());
-	string cmd2 = "mv "+file_name+"_Problem.dot "+ file_name+"_folder";
+	string cmd2 = "mv "+problem_name +" "+ folder_name;
 	system(cmd2.c_str());
-	cmd2 = "mv "+file_name+"_Policy.dot "+ file_name+"_folder";
+	cmd2 = "mv "+policy_name+" "+ folder_name;
 	system(cmd2.c_str());
-	cmd2 = "mv "+file_name+"_ValuePr.dot "+ file_name+"_folder";
+	cmd2 = "mv "+value_name+" "+ folder_name;
 	system(cmd2.c_str());
 
 
 
-	string cmd_draw = "dot -Tsvg "+folder_name+"/"+problem_name+" -o "+folder_name+"/A"+file_name+"_Problem.svg";
+	string cmd_draw = "dot -Tsvg "+folder_name+"/"+problem_name+" -o "+folder_name+"/A_"+file_name+"_Problem.svg";
 	system(cmd_draw.c_str());
-	cmd_draw = "dot -Tsvg "+folder_name+"/"+value_name+" -o "+folder_name+"/B"+file_name+"_ValuePr.svg";
+	cmd_draw = "dot -Tsvg "+folder_name+"/"+value_name+" -o "+folder_name+"/B_"+file_name+"_ValuePr.svg";
 	system(cmd_draw.c_str());
-	cmd_draw = "dot -Tsvg "+folder_name+"/"+policy_name+" -o "+folder_name+"/C"+file_name+"_Policy.svg";
+	cmd_draw = "dot -Tsvg "+folder_name+"/"+policy_name+" -o "+folder_name+"/C_"+file_name+"_Policy.svg";
 	system(cmd_draw.c_str());
-
+//-------------
 
 
 	auto v_p = rtdp(N,"0",to_string(w*h-1));
 
 	V = get<0>(v_p);
+	P = get<1>(v_p);
+
+	file_name = "Nav_RTDP_" + to_string(w)+"_"+to_string(h);
+	graphNavigation(w, h, V, P, dead_ends, file_name);
+
+	problem_name = file_name+"_Problem.dot";
+	value_name   = file_name+"_ValuePr.dot";
+	policy_name  = file_name+"_Policy.dot";
+
+	
+	cmd2 = "mv "+problem_name +" "+ folder_name;
+	system(cmd2.c_str());
+	cmd2 = "mv "+policy_name+" "+ folder_name;
+	system(cmd2.c_str());
+	cmd2 = "mv "+value_name+" "+ folder_name;
+	system(cmd2.c_str());
+
+
+
+	cmd_draw = "dot -Tsvg "+folder_name+"/"+problem_name+" -o "+folder_name+"/A_"+file_name+"_Problem.svg";
+	system(cmd_draw.c_str());
+	cmd_draw = "dot -Tsvg "+folder_name+"/"+value_name+" -o "+folder_name+"/B_"+file_name+"_ValuePr.svg";
+	system(cmd_draw.c_str());
+	cmd_draw = "dot -Tsvg "+folder_name+"/"+policy_name+" -o "+folder_name+"/C_"+file_name+"_Policy.svg";
+	system(cmd_draw.c_str());
+
 
 	for(int i=0; i<V.size(); i++)
 	{
@@ -137,7 +165,7 @@ int main()
 			cout<<endl;
 	}
 
-	map<id_state,string> nav_action;
+	//map<id_state,string> nav_action;
 	nav_action["0"] = "UP";
 	nav_action["1"] = "DOWN";
 	nav_action["2"] = "RIGHT";
@@ -145,7 +173,7 @@ int main()
 	nav_action["None"] = "Stay";
 
 	cout<<"----------------------------------------------------------------------------"<<endl;
-	P = get<1>(v_p);
+	
 
 	for(int i=0; i<V.size(); i++)
 	{

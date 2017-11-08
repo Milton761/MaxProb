@@ -10,7 +10,7 @@ namespace namespace_MDP
 
 	probability initializeV(id_state s)
 	{
-		return 0.1;
+		return 0;
 	}
 
 	id_action greedy_action(id_state s, GRAPH &G, valueFunctionPr &V)
@@ -144,19 +144,14 @@ namespace namespace_MDP
 	{
 		id_action a = greedy_action(s,G, V);
 		V[s] = QValue(s,a,G,V);
-		P[s] = a;
+		
 	}
 
 
     //add void* as parameter to add Heuristic Function
 
-	tuple<valueFunctionPr, Policy> rtdp(GRAPH &G, id_state s, id_state goal)
+	void rtdp_trial(GRAPH &G, id_state s, id_state goal, valueFunctionPr &V, Policy &P)
 	{
-		valueFunctionPr V;
-		Policy P;
-		V[goal] = 1;
-
-
 		while(s!=goal)
 		{
 
@@ -164,12 +159,34 @@ namespace namespace_MDP
 			{
 
 				id_action a = greedy_action(s, G, V);
+				P[s] = a;
 				updateV(s,V,G,P);
 				s = next_state(s,a,G);	
 			}else{
+				
+				P[s] = "None";
 				break;
 			}
 
+			if(s==goal)
+			{
+				P[s] = "None";
+			}
+
+		}
+
+	}
+
+	tuple<valueFunctionPr, Policy> rtdp(GRAPH &G, id_state s, id_state goal)
+	{
+		valueFunctionPr V;
+		Policy P;
+		V[goal] = 1;
+		int N_iter = 20;	
+
+		for(int i=0; i<N_iter; i++)
+		{
+			rtdp_trial(G, s, goal, V, P);
 		}
 
 		return forward_as_tuple(V,P);

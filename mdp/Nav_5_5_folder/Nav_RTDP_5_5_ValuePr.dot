@@ -1,0 +1,41 @@
+digraph G
+{
+node [shape=plaintext]
+a[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR>
+<TD width="35" height="35" fixedsize="true" BGCOLOR="cyan">0.57</TD>
+<TD width="35" height="35" fixedsize="true">0.65</TD>
+<TD width="35" height="35" fixedsize="true">0.64</TD>
+<TD width="35" height="35" fixedsize="true">0.64</TD>
+<TD width="35" height="35" fixedsize="true">0.59</TD>
+</TR>
+<TR>
+<TD width="35" height="35" fixedsize="true">0.59</TD>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.65</TD>
+</TR>
+<TR>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.67</TD>
+<TD width="35" height="35" fixedsize="true">0.67</TD>
+<TD width="35" height="35" fixedsize="true">0.67</TD>
+<TD width="35" height="35" fixedsize="true">0.71</TD>
+</TR>
+<TR>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.67</TD>
+<TD width="35" height="35" fixedsize="true">0.67</TD>
+<TD width="35" height="35" fixedsize="true" BGCOLOR="gray">0</TD>
+<TD width="35" height="35" fixedsize="true">0.8</TD>
+</TR>
+<TR>
+<TD width="35" height="35" fixedsize="true">0.59</TD>
+<TD width="35" height="35" fixedsize="true">0.66</TD>
+<TD width="35" height="35" fixedsize="true">0.71</TD>
+<TD width="35" height="35" fixedsize="true">0.8</TD>
+<TD width="35" height="35" fixedsize="true" BGCOLOR="palegreen">1</TD>
+</TR>
+ </TABLE>>];
+}
