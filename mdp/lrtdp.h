@@ -182,7 +182,7 @@ namespace namespace_MDP
 		valueFunctionPr V;
 		Policy P;
 		V[goal] = 1;
-		int N_iter = 20;	
+		int N_iter = 100;	
 
 		for(int i=0; i<N_iter; i++)
 		{

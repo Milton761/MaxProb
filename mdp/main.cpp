@@ -30,17 +30,19 @@ int main()
 //	valueIteration(G, "29", 0.01);
 
 
-	int w = 5;
-	int h = 5;
+	int w = 6;
+	int h = 4;
 
 
 	vector<int> dead_ends;
 	dead_ends.push_back(w*h-1-w-1);
-	//dead_ends.push_back(2);
-	//dead_ends.push_back(10);
+	dead_ends.push_back(2);
+	dead_ends.push_back(10);
+	dead_ends.push_back(18);
+	dead_ends.push_back(9);
 
 	//dead_ends = randomDeadEnds(w,h,20);
-
+//---------------------------------------------------------------------------------------------------
 	GRAPH N = generateRandomNavigation(w,h,dead_ends);
 
 
@@ -48,7 +50,7 @@ int main()
 	graph_to_dot(N,"N.dot");
 	
 
-	auto V_P = valueIteration(N, to_string(w*h-1), 0.001);
+	auto V_P = valueIteration(N, to_string(w*h-1), 0.0);
 
 	valueFunctionPr V = get<0>(V_P);
 	Policy P = get<1>(V_P);
@@ -106,9 +108,9 @@ int main()
 	string value_name   = file_name+"_ValuePr.dot";
 	string policy_name  = file_name+"_Policy.dot";
 
-	string cmd0 = "rm -rf "+ file_name +"_folder";
+	string cmd0 = "rm -rf "+ folder_name;
 	system(cmd0.c_str());
-	string cmd1 = "mkdir "+ file_name +"_folder";
+	string cmd1 = "mkdir "+ folder_name;
 	system(cmd1.c_str());
 	string cmd2 = "mv "+problem_name +" "+ folder_name;
 	system(cmd2.c_str());
@@ -182,7 +184,7 @@ int main()
 		if((i+1)%w==0)
 			cout<<endl;
 	}
-
+//---------------------------------------------------------------------------------------------------
     return 0;
 
 }
